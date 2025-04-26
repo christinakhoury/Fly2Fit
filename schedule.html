@@ -1,75 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Schedule | Fly2Fit</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Responsive wrapper */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 20px auto;
+    }
 
-   <title>Weekly Schedule | Fly2Fit</title>
-    <link rel="stylesheet" href="style.css"> 
-    <style>
-        table {
-            width: 90%;
-			max-width: 800px;
-			margin: 20px auto; 
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
+    table {
+      width: 100%;          /* fill its container */
+      max-width: 800px;     /* but never exceed 800px */
+      border-collapse: collapse;
+      table-layout: fixed;  /* force even column widths */
+      min-width: 600px;     /* ensure readability before scrolling */
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      word-wrap: break-word; /* wrap long text */
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1 align= center><u>Fly2Fit Weekly Course Schedule</u></h1>
-        <h4 align= center><i>Check out our class schedule and find the perfect time to train with us!</i></h4>
+  <div class="container">
+    <h1 style="text-align:center"><u>Fly2Fit Weekly Course Schedule</u></h1>
+    <h4 style="text-align:center"><i>Check out our class schedule and find the perfect time to train with us!</i></h4>
 
-        <table align= center>
-            <tr>
-                <th>Time</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-            </tr>
-            <tr>
-                <td>10:00 AM - 11:00 AM</td>
-                <td>Aerial Silk (Beginners)</td>
-                <td>Open Gym</td>
-                <td>Flexibility Training</td>
-                <td>Aerial Silk (Intermediate)</td>
-                <td>Strength & Conditioning</td>
-                <td>Aerial Yoga</td>
-              
-            </tr>
-            <tr>
-                <td>12:00 PM - 1:00 PM</td>
-                <td>Flexibility Training</td>
-                <td>Aerial Silk (Advanced)</td>
-                <td>Aerial Hoop</td>
-                <td>Open Gym</td>
-                <td>Choreography Workshop</td>
-                <td>Aerial Silk (All Levels)</td>
-            </tr>
-            <tr>
-                <td>6:00 PM - 7:00 PM</td>
-                <td>Aerial Silk (Intermediate)</td>
-                <td>Aerial Yoga</td>
-                <td>Aerial Hoop</td>
-                <td>Strength & Conditioning</td>
-                <td>Open Gym</td>
-                <td>Performance Prep</td>
-           
-            </tr>
-        </table>
-
-        <br>
-        <a href="index.html">⬅ Back to Home</a> <!-- Link to go back to your main page -->
+    <div class="table-responsive">
+      <table>
+        <tr>
+          <th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th>
+          <th>Thursday</th><th>Friday</th><th>Saturday</th>
+        </tr>
+        <tr>
+          <td>10:00 AM – 11:00 AM</td>
+          <td>Aerial Silk (Beginners)</td><td>Open Gym</td><td>Flexibility Training</td>
+          <td>Aerial Silk (Intermediate)</td><td>Strength & Conditioning</td><td>Aerial Yoga</td>
+        </tr>
+        <tr>
+          <td>12:00 PM – 1:00 PM</td>
+          <td>Flexibility Training</td><td>Aerial Silk (Advanced)</td><td>Aerial Hoop</td>
+          <td>Open Gym</td><td>Choreography Workshop</td><td>Aerial Silk (All Levels)</td>
+        </tr>
+        <tr>
+          <td>6:00 PM – 7:00 PM</td>
+          <td>Aerial Silk (Intermediate)</td><td>Aerial Yoga</td><td>Aerial Hoop</td>
+          <td>Strength & Conditioning</td><td>Open Gym</td><td>Performance Prep</td>
+        </tr>
+      </table>
     </div>
+
+    <br>
+    <a href="index.html">⬅ Back to Home</a>
+  </div>
 </body>
 </html>

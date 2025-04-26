@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | Fly2Fit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result, .final-message {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .feedback {
+            color: #ff6600;
+            font-weight: bold;
+        }
+    </style>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Fly2Fit Quiz</h1>
+    <form id="quizForm">
+        
+        <!-- Question 1 -->
+        <p><b>1. What is Aerial Silk mainly used for?</b></p>
+        <input type="radio" name="q1" value="correct"> Acrobatics<br>
+        <input type="radio" name="q1" value="wrong"> Swimming<br>
+        <input type="radio" name="q1" value="wrong"> Running<br>
+        <div id="feedback1" class="feedback"></div>
+
+        <!-- Question 2 -->
+        <p><b>2. Which of these improves Flexibility?</b></p>
+        <input type="radio" name="q2" value="correct"> Stretching Exercises<br>
+        <input type="radio" name="q2" value="wrong"> Weight Lifting<br>
+        <input type="radio" name="q2" value="wrong"> Sleeping<br>
+        <div id="feedback2" class="feedback"></div>
+
+        <!-- Question 3 -->
+        <p><b>3. Strength & Conditioning focuses on?</b></p>
+        <input type="radio" name="q3" value="wrong"> Acting skills<br>
+        <input type="radio" name="q3" value="correct"> Muscle strength and endurance<br>
+        <input type="radio" name="q3" value="wrong"> Painting<br>
+        <div id="feedback3" class="feedback"></div>
+
+        <!-- Question 4 -->
+        <p><b>4. Which muscle group is most important for Aerial Arts?</b></p>
+        <input type="radio" name="q4" value="correct"> Core Muscles<br>
+        <input type="radio" name="q4" value="wrong"> Toe Muscles<br>
+        <input type="radio" name="q4" value="wrong"> Neck Muscles<br>
+        <div id="feedback4" class="feedback"></div>
+
+        <!-- Question 5 -->
+        <p><b>5. What is essential before starting an Aerial session?</b></p>
+        <input type="radio" name="q5" value="correct"> Warming up<br>
+        <input type="radio" name="q5" value="wrong"> Eating heavy meals<br>
+        <input type="radio" name="q5" value="wrong"> Watching TV<br>
+        <div id="feedback5" class="feedback"></div>
+
+        <!-- Question 6 -->
+        <p><b>6. What can help you climb higher in Aerial Silks?</b></p>
+        <input type="radio" name="q6" value="correct"> Strong grip strength<br>
+        <input type="radio" name="q6" value="wrong"> Fast running<br>
+        <input type="radio" name="q6" value="wrong"> Good handwriting<br>
+        <div id="feedback6" class="feedback"></div>
+
+        <!-- Question 7 -->
+        <p><b>7. Which training improves balance the most?</b></p>
+        <input type="radio" name="q7" value="wrong"> Singing classes<br>
+        <input type="radio" name="q7" value="wrong"> Cooking classes<br>
+        <input type="radio" name="q7" value="correct"> Yoga<br>
+        <div id="feedback7" class="feedback"></div>
+
+        <!-- Submit Button -->
+        <button type="button" onclick="calculateScore()">Submit</button>
+
+    </form>
+
+    <div class="result" id="result"></div>
+    <div class="final-message" id="finalMessage"></div>
+
+    <br><br>
+    <a href="index.html">⬅ Back to Home</a>
+</div>
+
+<script>
+function calculateScore() {
+    let totalQuestions = 7;
+    let score = 0;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+        let radios = document.getElementsByName('q' + i);
+        let answered = false;
+        for (let j = 0; j < radios.length; j++) {
+            if (radios[j].checked) {
+                answered = true;
+                if (radios[j].value === "correct") {
+                    document.getElementById('feedback' + i).innerText = "Correct!";
+                    document.getElementById('feedback' + i).style.color = "green";
+                    score++;
+                } else {
+                    document.getElementById('feedback' + i).innerText = "Wrong!";
+                    document.getElementById('feedback' + i).style.color = "red";
+                }
+            }
+        }
+        // If no answer selected
+        if (!answered) {
+            document.getElementById('feedback' + i).innerText = "No answer selected!";
+            document.getElementById('feedback' + i).style.color = "orange";
+        }
+    }
+
+    let percentage = (score / totalQuestions) * 100;
+    document.getElementById('result').innerHTML = "Your Score: " + score + " / " + totalQuestions + " (" + Math.round(percentage) + "%)";
+
+    let message = "";
+    if (percentage < 60) {
+        message = "🐣 Early Bird! It's okay – More to learn, you're doing great!";
+    } else if (percentage >= 60 && percentage <= 80) {
+        message = "🚀 Intermediate Level – Wohoo! You're on your way!";
+    } else if (percentage > 80) {
+        message = "🏆 Pro Level! Amazing job, you're flying high!";
+    }
+    document.getElementById('finalMessage').innerHTML = message;
+}
+</script>
+
+</body>
+</html>
