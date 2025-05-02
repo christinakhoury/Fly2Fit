@@ -56,7 +56,8 @@
         <p align="center"><i>We'd love to hear from you. Fill in the form below and we'll get back to you soon!</i></p>
 
         <div class="form-container">
-            <form action="/submit_form" method="POST">
+            <form id="contactForm" action="contactusAction.php" method="POST" onsubmit="return validateForm()">
+
                 <!-- Name -->
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -68,27 +69,26 @@
                 <!-- Phone -->
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" required>
-				<br><br>
+                <br><br>
 
                 <!-- Interests (Checkboxes) -->
-<label for="interests">What are you interested in?</label><br>
-<input type="checkbox" id="aerial_silk" name="interests" value="Aerial Silk">
-<label for="aerial_silk">Aerial Silk</label><br>
+                <label for="interests">What are you interested in?</label><br>
+                <input type="checkbox" id="aerial_silk" name="interests[]" value="Aerial Silk">
+                <label for="aerial_silk">Aerial Silk</label><br>
 
-<input type="checkbox" id="aerial_yoga" name="interests" value="Aerial Yoga">
-<label for="aerial_yoga">Aerial Yoga</label><br>
+                <input type="checkbox" id="aerial_yoga" name="interests[]" value="Aerial Yoga">
+                <label for="aerial_yoga">Aerial Yoga</label><br>
 
-<input type="checkbox" id="strength_conditioning" name="interests" value="Strength & Conditioning">
-<label for="strength_conditioning">Strength & Conditioning</label><br>
+                <input type="checkbox" id="strength_conditioning" name="interests[]" value="Strength & Conditioning">
+                <label for="strength_conditioning">Strength & Conditioning</label><br>
 
-<input type="checkbox" id="choreography_workshop" name="interests" value="Choreography Workshop">
-<label for="choreography_workshop">Choreography Workshop</label><br>
+                <input type="checkbox" id="choreography_workshop" name="interests[]" value="Choreography Workshop">
+                <label for="choreography_workshop">Choreography Workshop</label><br>
 
-<input type="checkbox" id="flexibility_training" name="interests" value="Flexibility Training">
-<label for="flexibility_training">Flexibility Training</label><br>
+                <input type="checkbox" id="flexibility_training" name="interests[]" value="Flexibility Training">
+                <label for="flexibility_training">Flexibility Training</label><br>
 
-<br><br>
-
+                <br><br>
 
                 <!-- Gender -->
                 <label for="gender">Gender:</label>
@@ -97,30 +97,60 @@
                     <option value="male">Male</option>
                     <option value="other">Other</option>
                 </select>
-<br><br>
+                <br><br>
+
                 <!-- Age -->
                 <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required min="16" max="99">
-<br><br>
+                <input type="number" id="age" name="age" required min="10" max="99">
+                <br><br>
+
                 <!-- How did they find us -->
                 <label for="how_find_us">How did you find out about us?</label>
                 <select id="how_find_us" name="how_find_us" required>
                     <option value="social_media">Social Media</option>
-                    <option value="friend">Friend/Family</option>
+                    <option value="friend">Friends /Family</option>
                     <option value="online_ad">Online Advertisement</option>
                     <option value="other">Other</option>
                 </select>
-<br><br>
-                <!-- Discount Code -->
-                <label for="discount_code">Discount Code (if any)</label>
-                <input type="text" id="discount_code" name="discount_code">
-<br><br>
+                <br><br>
+
+                <label for="questions">Questions/ Recommendations: (if any)</label>
+                <textarea id="questions" name="questions" rows="2" maxlength="100"></textarea>
+                <br><br>
+
                 <!-- Submit Button -->
                 <button type="submit">Submit</button>
-				<br><br>
-				   <a href="index.html">⬅ Back to Home</a> <!-- Link to go back to your main page -->
+                <br><br>
+                <a href="index.html">⬅ Back to Home</a>
             </form>
         </div>
     </div>
+
+    <script>
+    function validateForm() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const age = document.getElementById("age").value;
+        const phonePattern = /^\+?[\d\s\-\(\)]{8,15}$/;
+
+        if (name === "" || email === "" || phone === "" || age === "") {
+            alert("Please fill in all required fields.");
+            return false;
+        }
+
+        if (!phonePattern.test(phone)) {
+            alert("Phone number should contain 8 to 15 digits.");
+            return false;
+        }
+
+        if (age < 10 || age > 99) {
+            alert("Age must be between 10 and 99.");
+            return false;
+        }
+
+        return true;
+    }
+    </script>
 </body>
 </html>

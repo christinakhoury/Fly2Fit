@@ -1,9 +1,15 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
-   background-color: #215b8e;
+    font-family: Serif, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #215b8e;
+
+    /* Flexbox to center content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full height of the viewport */
 }
 
 .container {
@@ -12,17 +18,16 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	 background-color: #f0f0f0; 
 }
 
 h1, h2 {
     color: #333;
 }
 
-
 ul {
     list-style-type: square;
 }
-
 
 a {
     color: #007BFF;
@@ -32,3 +37,24 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+  .table {
+      overflow-x: auto;
+      margin: 20px auto;
+    }
+/*schedule*/
+    table {
+      width: 100%;          /* fill its container */
+      max-width: 800px;     /* but never exceed 800px */
+      border-collapse: collapse;
+      table-layout: fixed;  /* force even column widths */
+      min-width: 600px;     /* ensure readability before scrolling */
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      word-wrap: break-word; /* wrap long text */
+    }
+    th {
+	background-color: #f4f4f4;}
